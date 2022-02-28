@@ -1,0 +1,68 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    ext.versions = [
+            'retrofit':  '2.9.0',
+            'moshi': '1.12.0',
+            'dagger': '2.34',
+            'navigation': '2.4.0',
+            'androidx': '1.1.0',
+            'junit': '1.14',
+            'mockito_kotlin': '2.0.0',
+            'kotlinCoroutines': '1.5.2',
+            'lifecycleLivedata': '2.2.0',
+            'viewPagerVersion': '1.0.0',
+            'picasso': '2.5.2',
+            'picasso_downloader': '1.1.0'
+    ]
+    ext.deps = [
+            squareup: [
+                    'retrofit': "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                    'retrofitRx':"com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+                    'retrofitMoshi': "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
+                    'moshi': "com.squareup.moshi:moshi:${versions.moshi}",
+                    'moshiKtGen': "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}",
+                    'picasso': "com.squareup.picasso:picasso:${versions.picasso}",
+                    'picasso_downloader' : "com.jakewharton.picasso:picasso2-okhttp3-downloader:${versions.picasso_downloader}"
+            ],
+            di: [
+                    'dagger':  "com.google.dagger:dagger:${versions.dagger}",
+                    'daggerCompiler':  "com.google.dagger:dagger-compiler:${versions.dagger}",
+                    'daggerAndroid':  "com.google.dagger:dagger-android:${versions.dagger}",
+                    'daggerAndroidProcessor': "com.google.dagger:dagger-android-processor:${versions.dagger}"
+            ],
+            navigation: [
+                    'fragment': "androidx.navigation:navigation-fragment:${versions.navigation}",
+                    'ui': "androidx.navigation:navigation-ui:${versions.navigation}"
+            ],
+            androidx: [
+                    'lifecycleextensions': "android.arch.lifecycle:extensions:${versions.androidx}",
+                    'lifecycleviewmodel' : "android.arch.lifecycle:viewmodel:${versions.androidx}",
+                    'lifecyclelivedata': "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycleLivedata}",
+                    'viewPager2': "androidx.viewpager2:viewpager2:${versions.viewPagerVersion}"
+            ],
+            junit: [
+                    'junit': "junit:junit:${versions.junit}",
+                    'mockito_kotlin': "com.nhaarman.mockitokotlin2:mockito-kotlin:${versions.mockito_kotlin}",
+
+            ],
+            kotlin: [
+                    'coroutines': "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinCoroutines}"
+            ]
+    ]
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">#cb4154</item>
+        <item name="android:textSize">24dp</item>
+    </style>
+    <style name="ItemTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">#cb4154</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+    <style name="BigText" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">16dp</item>
+    </style>
+</resources>

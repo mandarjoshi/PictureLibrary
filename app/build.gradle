@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id("io.gitlab.arturbosch.detekt").version("1.19.0")
+}
+
+android {
+    compileSdk 31
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    defaultConfig {
+        applicationId "com.mandarjoshi.picturelibrary"
+        minSdk 24
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+    productFlavors{
+        dev{
+            dimension "default"
+            buildConfigField "String","BASE_URL",'"https://afternoon-bayou-28316.herokuapp.com/"'
+            buildConfigField "String","API_KEY",'"cbd60012-503e-40b8-b9b5-53a9eb01af2c"'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    api deps.squareup.retrofit
+    api deps.squareup.retrofitRx
+    api deps.squareup.moshi
+    api deps.squareup.picasso
+    api deps.squareup.retrofitMoshi
+    api deps.squareup.picasso_downloader
+
+    api deps.di.dagger
+
+    api deps.navigation.fragment
+    api deps.navigation.ui
+
+    api deps.androidx.lifecycleextensions
+    api deps.androidx.lifecycleviewmodel
+    api deps.androidx.lifecyclelivedata
+    api deps.androidx.viewPager2
+
+    api deps.kotlin.coroutines
+
+    annotationProcessor deps.di.daggerCompiler
+    kapt deps.di.daggerCompiler
+
+    annotationProcessor deps.di.daggerAndroidProcessor
+    kapt deps.di.daggerAndroidProcessor
+
+    kapt deps.squareup.moshiKtGen
+
+    testImplementation 'junit:junit:4.+'
+    testImplementation deps.junit.mockito_kotlin
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}

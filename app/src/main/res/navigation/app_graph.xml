@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/picture_display"
+    android:id="@+id/app_graph">
+
+    <fragment
+        android:id="@+id/picture_display"
+        android:name="com.mandarjoshi.picturelibrary.ui.PictureMainFragment"
+        android:label="@string/screen_title"
+        tools:layout="@layout/fragment_picture_main">
+    </fragment>
+</navigation>
